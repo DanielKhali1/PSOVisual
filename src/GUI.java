@@ -43,17 +43,20 @@ public class GUI extends Application{
   public void start(Stage primaryStage)throws Exception 
   {
 	SwarmPane.setPrefSize(500, 500);
-	Swarm swarm = new Swarm(100, mouseX, mouseY);
+	Swarm swarm = new Swarm(200, mouseX, mouseY);
 
 
 	Pane pane = new Pane();
+	pane.setStyle("-fx-background-color: black");
 	
 	for(int i = 0; i < swarm.particles.length; i++)
 	{
-		Circle particle = new Circle(5);
+		Circle particle = new Circle(2);
+		
 		particle.setLayoutX(swarm.particles[i].getPosition().getX());
 		particle.setLayoutY(swarm.particles[i].getPosition().getY());
-		particle.setFill(Color.BLUE);
+		particle.setFill(Color.AQUA);
+		particle.setStroke(Color.WHITE);
 		SwarmPane.getChildren().add(particle);
 	}
 	
@@ -75,7 +78,7 @@ public class GUI extends Application{
 			
 			for(int i = 0; i < swarm.particles.length; i++)
 			{
-				swarm.particles[i].setRandomVelocity(-500, 300);
+				swarm.particles[i].setRandomVelocity(Math.random()*500 - 250, Math.random() * 300 - 150);
 				//swarm.particles[i].getVelocity().mul(100);
 				swarm.particles[i].bestEval = Double.POSITIVE_INFINITY;
 			}
@@ -101,7 +104,7 @@ public class GUI extends Application{
     
 
     
-	Timeline timeline = new Timeline(new KeyFrame(Duration.millis(50), new EventHandler<ActionEvent>() {
+	Timeline timeline = new Timeline(new KeyFrame(Duration.millis(30), new EventHandler<ActionEvent>() {
 
         @Override
         public void handle(ActionEvent t) 
@@ -112,10 +115,12 @@ public class GUI extends Application{
             	SwarmPane.getChildren().clear();
         		for(int i = 0; i < swarm.particles.length; i++)
         		{
-					Circle particle = new Circle(5);
-					particle.setLayoutX(swarm.particles[i].getPosition().getX());
-					particle.setLayoutY(swarm.particles[i].getPosition().getY());
-					particle.setFill(Color.BLUE);
+        			Circle particle = new Circle(2);
+        			
+        			particle.setLayoutX(swarm.particles[i].getPosition().getX());
+        			particle.setLayoutY(swarm.particles[i].getPosition().getY());
+        			particle.setFill(Color.AQUA);
+        			particle.setStroke(Color.WHITE);
 					SwarmPane.getChildren().add(particle);
         		}
         		//System.out.println(swarm.particles[0].getPosition().getX());
