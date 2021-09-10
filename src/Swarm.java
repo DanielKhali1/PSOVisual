@@ -7,9 +7,9 @@ public class Swarm
     private double inertia, cognitiveComponent, socialComponent;
     Vector bestPosition;
     public double bestEval;
-    public static final double DEFAULT_INERTIA = 1;
-    public static final double DEFAULT_COGNITIVE = .005; // Cognitive component.
-    public static final double DEFAULT_SOCIAL = .3; // Social component.
+    public static final double DEFAULT_INERTIA = 0.75;
+    public static final double DEFAULT_COGNITIVE = 0.03; // Cognitive component.
+    public static final double DEFAULT_SOCIAL = .5; // Social component.
     
     
     //public static final double DEFAULT_INERTIA = 0.729844;
@@ -114,7 +114,7 @@ public class Swarm
         	newVelocity.set(newVelocity.getX(), -newVelocity.getY());
         }
         
-       newVelocity.mul(0.9);
+//       newVelocity.mul(0.9);
        particle.setVelocity(newVelocity);
 }
     

@@ -44,7 +44,7 @@ public class GUI extends Application{
   {
 	SwarmPane.setPrefSize(500, 500);
 	Swarm swarm = new Swarm(200, mouseX, mouseY);
-
+	x.setFill(Color.WHITE);
 
 	Pane pane = new Pane();
 	pane.setStyle("-fx-background-color: black");
@@ -78,7 +78,7 @@ public class GUI extends Application{
 			
 			for(int i = 0; i < swarm.particles.length; i++)
 			{
-				swarm.particles[i].setRandomVelocity(Math.random()*500 - 250, Math.random() * 300 - 150);
+				swarm.particles[i].setRandomVelocity(Math.random()*100 - 50, Math.random() * 100 - 50);
 				//swarm.particles[i].getVelocity().mul(100);
 				swarm.particles[i].bestEval = Double.POSITIVE_INFINITY;
 			}
